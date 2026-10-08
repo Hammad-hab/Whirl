@@ -1,14 +1,16 @@
-# Rocket Lander (ASCII platformer)
 
-Largely AI-generated; I directed the design and play-tested it, but haven't audited every line.
+<img src="assets/thumbnail.png"/>
 
-Run: `python3 rocket.py [--biome=tundra] [--blocks]` (or `python3 -m whirl`).
+Run: `python3 whirl.py [--biome=tundra] [--blocks]` (or `python3 -m whirl`).
 Needs a UTF-8 terminal, 256 colours, 60x24 or bigger.
+
+Note: Largely AI-generated; I directed the design and play-tested it, but haven't audited every line.
+
 
 ## Layout
 
 ```
-rocket.py                  launcher
+whirl.py                  launcher
 whirl/
   app.py                   terminal setup, CLI args, main loop
   config.py                every tunable constant (physics, boost, level gen)
