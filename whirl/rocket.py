@@ -6,8 +6,9 @@ from .config import (BOOST_DRAIN, BOOST_MAX, DRAG, DT, GRAVITY, MAX_V, THRUST, T
 
 
 class Rocket:
-    def __init__(self, x, y):
+    def __init__(self, x, y, bio):
         self.x, self.y = x, y
+        self.bio = bio
         self.vx = self.vy = 0.0
         self.th = self.om = 0.0            # angle (rad, 0 = nose up) and angular velocity
         self.boost = BOOST_MAX
@@ -30,7 +31,7 @@ class Rocket:
         self.latch = not self.latch
 
     # ---- simulation ----
-    def step(self, bio, particles):
+    def step(self, particles):
         """Thrust, rotation, gravity, drag and position update (collisions happen later)."""
         self.thrusting = (self.thr > 0 or self.latch) and self.boost > 10
         sn, cs = math.sin(self.th), math.cos(self.th)
@@ -51,7 +52,7 @@ class Rocket:
         self.lt = max(0, self.lt - 1)
         self.rt = max(0, self.rt - 1)
         self.vx += ax * DT
-        self.vy += (GRAVITY * bio.grav + ay) * DT
+        self.vy += (GRAVITY * self.bio.grav + ay) * DT
         self.vx *= 1 - DRAG * DT
         self.vy *= 1 - DRAG * DT
         sp = math.hypot(self.vx, self.vy)

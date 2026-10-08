@@ -16,6 +16,7 @@ def resolve(rocket, solids, particles):
         d2 = dx * dx + dy * dy
         if d2 >= R * R:
             continue
+            
         if d2 > 1e-9:
             d = math.sqrt(d2)
             gx, gy = dx / d, dy / d
@@ -27,16 +28,23 @@ def resolve(rocket, solids, particles):
         vn = rocket.vx * gx + rocket.vy * gy
         if vn < 0:
             impact = -vn
+       
             top = gy < -0.6
             if top and (impact > CRASH_V or (impact > SOFT_CRASH_V and abs(rocket.th) > SOFT_CRASH_ANGLE)):
                 return grounded, True
+                
             e = 0.2 if impact > 6 else 0.0
             rocket.vx -= (1 + e) * vn * gx
             rocket.vy -= (1 + e) * vn * gy
             if top and impact > 4:
                 particles.landing_puff(rocket)
+        
         if gy < -0.6:
             grounded = True
+
+    if rocket.bio.explodeOnContact and grounded:
+         return grounded, True
+         
     return grounded, False
 
 

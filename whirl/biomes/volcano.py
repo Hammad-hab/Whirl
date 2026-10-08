@@ -14,4 +14,5 @@ def build():
         deco=[(0.06, "▲", (c(239), c(242))), (0.20, "^'", (c(202), c(208), c(160))),
               (0.04, "•", (c(226), c(208)))],
         roots=("▾╷", (c(202), c(160)), 0.12),
+        explodeOnContact=True,
         grav=1.15, fric=0.85, fx="ember", fxn=0.30, fxc=(ORG, RED, YEL))

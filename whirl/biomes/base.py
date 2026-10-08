@@ -12,6 +12,7 @@ _BUILDERS = []
 class Biome:
     name: str
     accent: int
+    explodeOnContact: bool
     haze: tuple            # (upper, lower) haze colours
     grass: tuple           # 4 colours for the platform top
     dirt: tuple            # 2 colours for the platform body

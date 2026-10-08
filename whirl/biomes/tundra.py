@@ -13,5 +13,6 @@ def build():
         stars=True, sky="aurora", skyc=(WHT, GRY, CYN),
         deco=[(0.07, "♠", (c(22), c(29), c(255))), (0.20, "*.'", (c(255), c(153))),
               (0.03, "•", (c(81), c(159)))],
+        explodeOnContact=False,
         roots=("╿▼", (c(117), c(153)), 0.14),
         grav=1.0, fric=0.97, fx="snow", fxn=0.35, fxc=(WHT,))

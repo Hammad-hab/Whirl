@@ -17,7 +17,7 @@ class Game:
         self.W, self.H = W, H
         self.level = Level(W, H, biome)
         p = self.level.plats[0]
-        self.rocket = Rocket(p.x + p.w / 2, p.y - R - 0.01)
+        self.rocket = Rocket(p.x + p.w / 2, p.y - R - 0.01, biome)
         self.camera = Camera(W)
         self.camera.snap(self.rocket, self.level.Wu)
         self.particles = ParticleSystem()
@@ -71,7 +71,7 @@ class Game:
         self._track_zone()
         r = self.rocket
         if self.status == "flying":
-            r.step(self.biome, self.particles)
+            r.step(self.particles)
             self.grounded, crashed = physics.resolve(r, self.level.solids, self.particles)
             if crashed:
                 self.crash()

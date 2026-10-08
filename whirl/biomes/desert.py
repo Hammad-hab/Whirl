@@ -8,6 +8,7 @@ def build():
     return Biome(
         name="DESERT", note="hot and dry", accent=YEL,
         haze=(c(130), c(172)), hb=0.05,
+        explodeOnContact=False,
         grass=(c(136), c(178), c(214), c(221)), dirt=(c(137), c(173)),
         mount=(c(95), c(131)), shape="mesa", hedge=c(130),
         stars=False, sky="sun", skyc=(c(226), c(255), c(208)),
