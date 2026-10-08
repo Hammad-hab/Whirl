@@ -4,7 +4,7 @@
 Run: `python3 whirl.py [--biome=tundra] [--blocks]` (or `python3 -m whirl`).
 Needs a UTF-8 terminal, 256 colours, 60x24 or bigger.
 
-Note: Largely AI-generated; I directed the design and play-tested it, but haven't audited every line.
+Note: Largely AI-generated; I directed the design, added new features and play-tested it, but haven't audited every line.
 
 
 ## Layout
